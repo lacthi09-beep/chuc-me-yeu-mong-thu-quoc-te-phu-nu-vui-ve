@@ -11,6 +11,7 @@ font-family: Arial;
 background: linear-gradient(135deg,#ffd6e7,#fff0f5);
 text-align:center;
 padding:40px;
+overflow-x:hidden;
 }
 
 h1{
@@ -27,20 +28,25 @@ margin-bottom:30px;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:20px;
+gap:25px;
 }
 
 .card{
 background:white;
-border-radius:15px;
-width:250px;
-padding:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+border-radius:20px;
+width:260px;
+padding:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+transition:transform 0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
 }
 
 .card img{
 width:100%;
-border-radius:10px;
+border-radius:15px;
 }
 
 .text{
@@ -51,8 +57,23 @@ color:#444;
 
 footer{
 margin-top:40px;
-font-size:18px;
+font-size:20px;
 color:#e91e63;
+font-weight:bold;
+}
+
+/* tim bay */
+
+.heart{
+position:fixed;
+bottom:-10px;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
 }
 
 </style>
@@ -63,32 +84,50 @@ color:#e91e63;
 <h1>💐 Chúc mừng ngày 8/3 mẹ 💐</h1>
 
 <p class="message">
-Cảm ơn mẹ vì luôn yêu thương và chăm sóc con ❤️  
-Con chúc mẹ luôn vui vẻ và thật nhiều sức khỏe.
+Cảm ơn mẹ vì luôn yêu thương và chăm sóc bé Thi ❤️  
+Mẹ luôn là người tuyệt vời nhất với Lạc Thi.
 </p>
 
 <div class="gallery">
 
 <div class="card">
 <img src="me1.jpg">
-<div class="text">Mẹ luôn là người tuyệt vời nhất với con</div>
+<div class="text">Mẹ luôn là người bé Thi yêu nhất 💕</div>
 </div>
 
 <div class="card">
 <img src="me2.jpg">
-<div class="text">Cảm ơn mẹ vì đã luôn bên con</div>
+<div class="text">Cảm ơn mẹ vì đã luôn bên gái lớn của mẹ</div>
 </div>
 
 <div class="card">
 <img src="me3.jpg">
-<div class="text">Con mong mẹ luôn hạnh phúc</div>
+<div class="text">Lạc Thi mong mẹ luôn vui vẻ và khỏe mạnh</div>
 </div>
 
 </div>
 
 <footer>
-Con yêu mẹ rất nhiều ❤️
+Yêu mẹ rất nhiều ❤️  
+– Bé Thi –
 </footer>
+
+<script>
+
+function createHeart(){
+const heart=document.createElement("div")
+heart.className="heart"
+heart.innerHTML="❤️"
+heart.style.left=Math.random()*100+"vw"
+heart.style.fontSize=(15+Math.random()*20)+"px"
+document.body.appendChild(heart)
+
+setTimeout(()=>{heart.remove()},6000)
+}
+
+setInterval(createHeart,400)
+
+</script>
 
 </body>
 </html>
